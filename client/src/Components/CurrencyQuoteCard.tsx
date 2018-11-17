@@ -59,9 +59,9 @@ class CurrencyQuoteCard extends React.Component {
                                 </TableRow>
                             </TableBody>
                         </Table>
-                        <br/>
-                        <Typography gutterBottom variant="h5" component="h3" style={{color:'teal'}} >
-                        {ShowProfit(parseFloat(profit))}
+                        <br />
+                        <Typography gutterBottom variant="h5" component="h3" style={{ color: 'teal' }} >
+                            {ShowProfit(parseFloat(profit))}
                         </Typography>
                     </CardContent>
 
@@ -92,27 +92,23 @@ function ConvertToTime(timeString: string) {
 
 function GetBestQuote(allQuotes: any) {
     var allQuotes = allQuotes[0].quotes.slice(1);
-    var numberOfQuotes = allQuotes.length;
-    var sortedQuotes = allQuotes.map((x: any) => parseFloat(x.price)).sort();
-    var highestQuote = sortedQuotes[numberOfQuotes - 1];
-    var bestQuote = allQuotes.filter((x:any)=>parseFloat(x.price) === highestQuote);
+    var highestQuote = Math.max(...allQuotes.map((x: any) => parseFloat(x.price)));
+    var bestQuote = allQuotes.filter((x: any) => parseFloat(x.price) === highestQuote);
     return bestQuote[0];
 }
 
-function ShowProfit(profit: number){
-if(profit<0){
-    return<span style={{color:'red'}}>$Profit: {profit.toLocaleString()}</span>
-}
-else{
-    return <span>$Profit: {profit.toLocaleString()}</span>
-}
+function ShowProfit(profit: number) {
+    if (profit < 0) {
+        return <span style={{ color: 'red' }}>Loss: ${profit.toLocaleString()}</span>
+    }
+    else {
+        return <span>Profit: ${profit.toLocaleString()}</span>
+    }
 }
 function GetProfit(allQuotes: any) {
     {
         var allQuotes = allQuotes[0].quotes.slice(1);
-        var numberOfQuotes = allQuotes.length;
-        var sortedQuotes = allQuotes.map((x: any) => parseFloat(x.price)).sort();
-        var highestQuote = sortedQuotes[numberOfQuotes - 1];
+        var highestQuote = Math.max(...allQuotes.map((x: any) => parseFloat(x.price)));
         var bestQuote = allQuotes.filter((x: any) => x.price === highestQuote.toString());
         return bestQuote[0];
     }
