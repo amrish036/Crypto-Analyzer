@@ -4,7 +4,10 @@ import MoneyIcon from '@material-ui/icons/Money';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
+import Grid from '@material-ui/core/Grid';
 import './App.css';
 import Currency from './Models/Currency.ts';
 import CurrencyQuoteCard from './Components/CurrencyQuoteCard';
@@ -62,21 +65,8 @@ class App extends Component {
     if (this.state.items != null) {
       data = this.state.items;
     }
-
-    var BTC = data.filter(x => x.currency === 'BTC');
-    var ETC = data.filter(x => x.currency === 'ETC');
-    var LTC = data.filter(x => x.currency === 'LTC');
     var Currencies = [];
-
-    if (BTC.length > 0) {
-      Currencies.push(BTC)
-    }
-    if (ETC.length > 0) {
-      Currencies.push(ETC)
-    }
-    if (LTC.length > 0) {
-      Currencies.push(LTC)
-    }
+    Currencies = data;
 
     return (
       <React.Fragment>
@@ -92,13 +82,20 @@ class App extends Component {
           </AppBar>
           <header className="App-header" >
             <div className="CardContainer">
-              {Currencies.map(currency => <CurrencyQuoteCard quotes={currency} key={currency.map(x => x.currency).toLocaleString()} />)}
+              {Currencies.map(currency => <CurrencyQuoteCard quotes={currency} />)}
               {console.log("State items is:" + this.state.items)}
             </div>
-            <Button variant="contained" color="primary" onClick={this.onRefreshButtonClick}>
-              Refresh
-            </Button>
+            <div>
+                  <Button variant="contained" color="primary" onClick={this.onRefreshButtonClick}>
+                  Refresh Quotes
+                  </Button>
+            </div>
           </header>
+          <footer >
+            <Typography variant="h6" align="center" color="inherit">
+              Crypto-Analyzer 2018 &copy;
+            </Typography>
+          </footer>
         </div>
       </React.Fragment>
     );

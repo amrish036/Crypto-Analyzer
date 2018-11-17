@@ -1,7 +1,7 @@
 .Card{
     display: flex;
     flex-Direction:column;
-    margin: 50px 
+    margin: 20px 10px ;
 }
 
 .CardHeading{

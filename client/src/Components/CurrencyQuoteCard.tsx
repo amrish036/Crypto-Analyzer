@@ -26,20 +26,16 @@ class CurrencyQuoteCard extends React.Component {
 
     render() {
         const Quotes: any = this.props;
-        const firstQuote = Quotes.quotes[0].quotes[0];
+        const firstQuote = Quotes.quotes.quotes[0];
         const bestQuote = GetBestQuote(Quotes.quotes);
         const profit = (bestQuote.price - firstQuote.price).toFixed(2);
-        // const BTC: any = Quotes.quotes.filter((x: Currency) => x.currency === 'BTC');
-        // const ETC: any = Quotes.quotes.filter((x: Currency) => x.currency === 'ETC');
-        // const LTC: any = Quotes.quotes.filter((x: Currency) => x.currency === 'LTC');
-
         return (
             <div className="Card">
                 <Card>
                     <CardContent>
                         <Typography className="CardHeading" gutterBottom variant="h5" component="h2" color="primary">
-                            {convertToDay(Quotes.quotes[0].date)} <br />
-                            {Quotes.quotes[0].currency} <br />
+                            {convertToDay(Quotes.quotes.date)} <br />
+                            {Quotes.quotes.currency} <br />
                         </Typography>
                         <Table >
                             <TableHead>
@@ -64,13 +60,6 @@ class CurrencyQuoteCard extends React.Component {
                             {ShowProfit(parseFloat(profit))}
                         </Typography>
                     </CardContent>
-
-                    {/* {console.log(Quotes.quotes)}
-          {console.log(BTC[0].currency)}
-          {console.log(LTC[0].currency)}
-          {console.log(ETC[0].date)}
-          {console.log(convertToDay(ETC[0].date))}
-          {console.log(ETC[0].currency)} <br/> */}
                 </Card>
             </div>
         );
@@ -91,7 +80,7 @@ function ConvertToTime(timeString: string) {
 
 
 function GetBestQuote(allQuotes: any) {
-    var allQuotes = allQuotes[0].quotes.slice(1);
+    var allQuotes = allQuotes.quotes.slice(1);
     var highestQuote = Math.max(...allQuotes.map((x: any) => parseFloat(x.price)));
     var bestQuote = allQuotes.filter((x: any) => parseFloat(x.price) === highestQuote);
     return bestQuote[0];
@@ -107,7 +96,7 @@ function ShowProfit(profit: number) {
 }
 function GetProfit(allQuotes: any) {
     {
-        var allQuotes = allQuotes[0].quotes.slice(1);
+        var allQuotes = allQuotes.quotes.slice(1);
         var highestQuote = Math.max(...allQuotes.map((x: any) => parseFloat(x.price)));
         var bestQuote = allQuotes.filter((x: any) => x.price === highestQuote.toString());
         return bestQuote[0];
