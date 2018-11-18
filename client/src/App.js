@@ -25,7 +25,8 @@ class App extends Component {
       items: null,
       currencies: [Currency],
       open: false,
-      selectedDate: null
+      selectedDate: null,
+      selectedCurrency: null
     }
     this.onRefreshButtonClick = this.onRefreshButtonClick.bind(this)
 
@@ -52,10 +53,16 @@ class App extends Component {
     this.handleClose();
   }
 
-  handleTextChange = (e) =>{
+  handleTextChange = (e) => {
+    var typedCurrency = (e.target.value).toString().toUpperCase();
+    this.setState({ selectedCurrency: typedCurrency });
+    console.log(typedCurrency);
+  }
+
+  handleDateChange = (e) => {
     var convertDateToString = moment(e.target.value).format('YYYYMMDD');
-    this.setState({selectedDate: convertDateToString});
-    console.log(convertDateToString)
+    this.setState({ selectedDate: convertDateToString });
+    console.log(convertDateToString);
   }
 
   handleClose = () => {
@@ -87,21 +94,20 @@ class App extends Component {
 
     var Currencies = [];
     if (this.state.items != null) {
-      
-      if(this.state.selectedDate != null){
-        Currencies = data.filter(x=>x.date === this.state.selectedDate)
+
+      if (this.state.selectedDate != null) {
+        Currencies = data.filter(x => x.date === this.state.selectedDate)
       }
-      else{
+      else if (this.state.selectedCurrency != null) {
+        Currencies = data.filter(x => x.currency === this.state.selectedCurrency)
+      }
+      else {
         data = this.state.items;
         Currencies = data;
       }
-     
-    }
-    
-   
-   
 
-    
+    }
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -138,6 +144,15 @@ class App extends Component {
                     margin="dense"
                     id="date"
                     type="date"
+                    fullWidth
+                    onChange={this.handleDateChange.bind(this)}
+                  />
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="currencyText"
+                    placeholder="Type Currency eg. ETC"
+                    type="text"
                     fullWidth
                     onChange={this.handleTextChange.bind(this)}
                   />
