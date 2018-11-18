@@ -4,15 +4,18 @@ import MoneyIcon from '@material-ui/icons/Money';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Toolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
-import Grid from '@material-ui/core/Grid';
-import './App.css';
 import Currency from './Models/Currency.ts';
 import CurrencyQuoteCard from './Components/CurrencyQuoteCard';
 import axios from 'axios';
-import { func } from 'prop-types';
+import moment from 'moment';
+import './App.css';
 
 class App extends Component {
 
@@ -21,6 +24,8 @@ class App extends Component {
     this.state = {
       items: null,
       currencies: [Currency],
+      open: false,
+      selectedDate: null
     }
     this.onRefreshButtonClick = this.onRefreshButtonClick.bind(this)
 
@@ -38,6 +43,24 @@ class App extends Component {
     setInterval(this.getDataFromDb, 1000);
     // console.log(this.state.items);
   }
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleFilterOk = () => {
+    this.handleClose();
+  }
+
+  handleTextChange = (e) =>{
+    var convertDateToString = moment(e.target.value).format('YYYYMMDD');
+    this.setState({selectedDate: convertDateToString});
+    console.log(convertDateToString)
+  }
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
   getDatafromDB() {
     axios.get("/api/getData")
@@ -62,12 +85,23 @@ class App extends Component {
 
   render() {
 
-    if (this.state.items != null) {
-      data = this.state.items;
-    }
     var Currencies = [];
-    Currencies = data;
+    if (this.state.items != null) {
+      
+      if(this.state.selectedDate != null){
+        Currencies = data.filter(x=>x.date === this.state.selectedDate)
+      }
+      else{
+        data = this.state.items;
+        Currencies = data;
+      }
+     
+    }
+    
+   
+   
 
+    
     return (
       <React.Fragment>
         <CssBaseline />
@@ -86,11 +120,41 @@ class App extends Component {
               {console.log("State items is:" + this.state.items)}
             </div>
             <div>
-                  <Button variant="contained" color="primary" onClick={this.onRefreshButtonClick}>
-                  Refresh Quotes
+              <Button variant="contained" color="primary" onClick={this.onRefreshButtonClick} style={ButtonStyle}>
+                Refresh Quotes
                   </Button>
+              <Button variant="contained" color="primary" style={ButtonStyle} onClick={this.handleClickOpen}>Filter</Button>
+              <Dialog
+                open={this.state.open}
+                onClose={this.handleClose}
+                aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Filter</DialogTitle>
+                <DialogContent>
+                  <DialogContentText>
+                    Filter based on date
+            </DialogContentText>
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="date"
+                    type="date"
+                    fullWidth
+                    onChange={this.handleTextChange.bind(this)}
+                  />
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={this.handleClose} color="primary">
+                    Cancel
+            </Button>
+                  <Button onClick={this.handleFilterOk} color="primary">
+                    Ok
+            </Button>
+                </DialogActions>
+              </Dialog>
+
             </div>
           </header>
+
           <footer >
             <Typography variant="h6" align="center" color="inherit">
               Crypto-Analyzer 2018 &copy;
@@ -102,7 +166,7 @@ class App extends Component {
   }
 }
 const ButtonStyle = {
-  margin: '20px'
+  margin: '20px',
 }
 
 var data = [
@@ -124,5 +188,6 @@ function GetDistinctCurrency() {
   const distinctCurrencies = [...new Set(data.map(x => x.currency))];
   console.log(distinctCurrencies)
 }
+
 
 export default App;
