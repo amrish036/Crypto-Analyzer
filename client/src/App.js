@@ -25,10 +25,11 @@ class App extends Component {
       items: null,
       currencies: [Currency],
       open: false,
-      selectedDate: null,
-      selectedCurrency: null,
       quotesFound: false,
     }
+    this.selectedDate = null;
+    this.selectedCurrency = null;
+
     this.onRefreshButtonClick = this.onRefreshButtonClick.bind(this)
 
   }
@@ -47,22 +48,25 @@ class App extends Component {
   }
 
   handleClickOpen = () => {
+    this.selectedCurrency = null;
+    this.selectedDate = null;
     this.setState({ open: true });
   };
 
   handleFilterOk = () => {
+    this.fetchNewDataFromDb();
     this.handleClose();
   }
 
   handleTextChange = (e) => {
     var typedCurrency = (e.target.value).toString().toUpperCase();
-    this.setState({ selectedCurrency: typedCurrency });
+    this.selectedCurrency = typedCurrency;
     console.log(typedCurrency);
   }
 
   handleDateChange = (e) => {
     var convertDateToString = moment(e.target.value).format('YYYYMMDD');
-    this.setState({ selectedDate: convertDateToString });
+    this.selectedDate = convertDateToString;
     console.log(convertDateToString);
   }
 
@@ -70,28 +74,39 @@ class App extends Component {
     this.setState({ open: false });
   };
 
-  getDatafromDB() {
-    axios.get("/api/getData")
+  async getDatafromDB() {
+    try{
+      return await axios.get("/api/getData")
       .then(response => {
         this.setState({ items: response.data.data })
+        { console.log("Fetched from DB") }
       })
-    { console.log("Fetched from DB") }
+    } catch (error){
+      console.log(error)
+    }
   };
 
-  fetchNewDataFromDb() {
-    axios.get("/api/fetchNewData")
+  async fetchNewDataFromDb() {
+    try{axios.get("/api/fetchNewData",{
+      params:{
+        date: this.selectedDate,
+        currency: this.selectedCurrency
+      }
+    })
       .then(response => {
         this.setState({
           items: response.data.data,
-          selectedCurrency: null,
-          selectedDate: null
         })
       })
-    { console.log("Fetched  new datafrom DB") }
+    { console.log("Fetched  new datafrom DB") }}
+    catch (error){
+      console.log(error)
+    }
+    
   }
 
   onRefreshButtonClick() {
-    this.fetchNewDataFromDb();
+    this.getDatafromDB();
     console.log('The link was clicked.');
   }
 
@@ -99,17 +114,8 @@ class App extends Component {
 
     var Currencies = [];
     if (this.state.items != null) {
-
-      if (this.state.selectedDate != null) {
-        Currencies = data.filter(x => x.date === this.state.selectedDate)
-      }
-      else if (this.state.selectedCurrency != null) {
-        Currencies = data.filter(x => x.currency === this.state.selectedCurrency)
-      }
-      else {
         data = this.state.items;
         Currencies = data;
-      }
     }
     else {
       Currencies = data;

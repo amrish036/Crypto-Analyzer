@@ -33,7 +33,6 @@ var fullData = [Data];
 MongoClient.connect(dbRoute, function (err, db) {
   if (err) throw err;
   var dbo = db.db();
-  var d = [];
   dbo.collection("data").find({}).toArray(function (err, result) {
     if (err) throw err;
     fullData = result;
@@ -46,12 +45,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
 
+
 router.get("/getData", (req, res) => {
-  return res.json({ success: true, data: fullData })
+  var dbo = db;
+  dbo.collection("data").find({}).toArray(function (err, result) {
+    if (err) throw err;
+    fullData = result;
+    console.log(result);
+    return res.json({ success: true, data: fullData })
+  });
 });
 
 router.get("/fetchNewData", (req, res) => {
-  db.db.collection("data").find({}).toArray(function (err, result) {
+  console.log((req.query.date));
+  console.log(req.query.currency);
+  var query = { $or: [{date: req.query.date}, {currency: req.query.currency}] }
+  console.log(query);
+  db.db.collection("data").find(query).toArray(function (err, result) {
     if (err) throw err;
     fullData = result;
     console.log("New data fetched..." + fullData)
@@ -61,6 +71,12 @@ router.get("/fetchNewData", (req, res) => {
 
 // append /api for our http requests
 app.use("/api", router);
+
+//Unhandled Exception
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
