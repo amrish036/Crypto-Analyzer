@@ -6,8 +6,8 @@ class Currency{
     quotes: Array<Quote>;
 
     constructor(){
-        this.currency = 'AUD',
-        this.date = '20181114',
+        this.currency = '',
+        this.date = '',
         this.quotes = []
     }
 }

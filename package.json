@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"concurrently \"cd server && node server.js\" \"cd client && npm start\" "
+    "start": "concurrently \"cd server && node server.js\" \"cd client && npm start\" "
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,6 @@
   "homepage": "https://github.com/amrish036/Crypto-Analyser#readme",
   "dependencies": {
     "concurrently": "^4.0.1"
-  }
+  },
+  "devDependencies": {}
 }
