@@ -1,23 +1,31 @@
+var supertest = require("supertest");
+var should = require('should');
 
-const assert = require('assert');
-const server = require('../server');
-const mongoose = require("mongoose");
-const express = require("express");
+var server = supertest.agent('http://localhost:3001');
 
-describe('some demo test', function(){
-    it('adds two number', function(){
-        assert(2+3 === 5)
-    })
-    it('adds doenst add two numbers', function(){
-        assert(2+3 !== 4)
-    })
-    it('opens the connections', function(){
+describe('Unit testing the get and fetch Data', ()=>{
 
-        const dbRoute = "mongodb://amrish:amrish036@ds037067.mlab.com:37067/cryptodata";
-        let db = mongoose.connection;
-        var col = db.collection('data').find({});
-        assert(col)
+    it('should return all the data from db', function(done){
+        server
+        .get('/api/getData')
+        .expect('Content-type','/json/')
+        .expect(200)
+        .end(function(err,res){
+            res.status.should.equal(200);
+            res.body.success.should.equal(true);
+            done();
+        });
+    });
 
-
-    })
+    it('should fetch new the data from db', function(done){
+        server
+        .get('/api/fetchNewData')
+        .expect('Content-type','/json/')
+        .expect(200)
+        .end(function(err,res){
+            res.status.should.equal(200);
+            res.body.success.should.equal(true);
+            done();
+        });
+    });
 })
