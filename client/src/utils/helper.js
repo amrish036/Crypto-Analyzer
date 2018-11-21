@@ -3,7 +3,6 @@ import moment from 'moment';
 
 export function convertToDay(dateString) {
     var convertedDate = moment(dateString);
-    console.log(convertedDate);
     return convertedDate.format('DD-MMM-YYYY');
 }
 
@@ -22,7 +21,6 @@ export function getBestQuote(allQuotes) {
 
 export function convertToTime(timeString) {
     var convertedTime = moment(timeString, "hhmm").format("h:mm A");
-    console.log(convertedTime);
     return convertedTime;
 }
 

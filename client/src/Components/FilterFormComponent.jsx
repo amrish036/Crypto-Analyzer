@@ -20,13 +20,11 @@ class FilterFormComponent extends Component {
   handleTextChange = (e) => {
     var typedCurrency = (e.target.value).toString().toUpperCase();
     this.enteredCurrency = typedCurrency;
-    console.log(typedCurrency);
   }
 
   handleDateChange = (e) => {
     var convertDateToString = moment(e.target.value).format('YYYYMMDD');
     this.selectedDate = convertDateToString;
-    console.log(convertDateToString);
   }
 
   handleClose = () => {

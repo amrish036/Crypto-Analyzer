@@ -10,10 +10,12 @@ import FilterFormComponent from './Components/FilterFormComponent.jsx';
 import AppBarComponent from './Components/AppBarComponent';
 import FooterComponent from './Components/FooterComponent';
 
+
 const ButtonStyle = {
   margin: '20px',
 }
 
+var data = []
 
 class App extends Component {
 
@@ -42,7 +44,6 @@ class App extends Component {
       items: null,
       currencies: data
     })
-    setInterval(this.getDataFromDb, 1000);
   }
 
   // Handling events
@@ -55,11 +56,9 @@ class App extends Component {
 
   onRefreshButtonClick() {
     this.getDatafromDB();
-    console.log('The link was clicked.');
   }
 
   getFormData(open, date, currency) {
-    console.log(open + date + currency);
     this.setState({ open: open });
 
     if (currency) {
@@ -79,7 +78,6 @@ class App extends Component {
       return await axios.get("/api/getData")
         .then(response => {
           this.setState({ items: response.data.data })
-          { console.log("Fetched from DB") }
         })
     } catch (error) {
       console.log(error)
@@ -129,10 +127,10 @@ class App extends Component {
                 </Typography>}
             </div>
             <div>
-              <Button variant="contained" color="primary" onClick={this.onRefreshButtonClick} style={ButtonStyle}>
+              <Button className="refreshButton" variant="contained" color="primary" onClick={this.onRefreshButtonClick} style={ButtonStyle}>
                 Refresh Quotes
               </Button>
-              <Button variant="contained" color="primary" style={ButtonStyle} onClick={this.handleClickOpen}>Filter</Button>
+              <Button className="filterButton" variant="contained" color="primary" style={ButtonStyle} onClick={this.handleClickOpen}>Filter</Button>
               {this.state.open ? <FilterFormComponent sendData={this.getFormData.bind(this)} /> : <></>}
             </div>
           </header>
@@ -142,6 +140,5 @@ class App extends Component {
     );
   }
 }
-var data = []
 
 export default App;

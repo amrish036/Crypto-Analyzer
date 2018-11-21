@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`<App /> should match the App component snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App />,
@@ -22,65 +22,24 @@ ShallowWrapper {
         <div
           className="App"
         >
-          <WithStyles(AppBar)
-            position="static"
-            style={
-              Object {
-                "alignItems": "center",
-                "display": "top",
-              }
-            }
-          >
-            <WithStyles(Toolbar)>
-              <pure(MoneyIcon) />
-              <WithStyles(Typography)
-                color="inherit"
-                noWrap={true}
-                variant="h6"
-              >
-                Crypto-Analyzer
-              </WithStyles(Typography)>
-            </WithStyles(Toolbar)>
-          </WithStyles(AppBar)>
+          <AppBarComponent />
           <header
             className="App-header"
           >
             <div
               className="CardContainer"
             >
-              <CurrencyQuoteCard
-                quotes={
-                  Object {
-                    "currency": "BTC",
-                    "date": "20180507",
-                    "quotes": Array [
-                      Object {
-                        "price": "35.98",
-                        "time": "0915",
-                      },
-                      Object {
-                        "price": "36.13",
-                        "time": "1045",
-                      },
-                      Object {
-                        "price": "37.01",
-                        "time": "1230",
-                      },
-                      Object {
-                        "price": "35.98",
-                        "time": "1400",
-                      },
-                      Object {
-                        "price": "39.56",
-                        "time": "1530",
-                      },
-                    ],
-                  }
-                }
-              />
+              <WithStyles(Typography)
+                color="inherit"
+                noWrap={true}
+                variant="h6"
+              >
+                No Quote Found, try another Date or Currency
+              </WithStyles(Typography)>
             </div>
             <div>
               <WithStyles(Button)
+                className="refreshButton"
                 color="primary"
                 onClick={[Function]}
                 style={
@@ -93,6 +52,7 @@ ShallowWrapper {
                 Refresh Quotes
               </WithStyles(Button)>
               <WithStyles(Button)
+                className="filterButton"
                 color="primary"
                 onClick={[Function]}
                 style={
@@ -104,73 +64,10 @@ ShallowWrapper {
               >
                 Filter
               </WithStyles(Button)>
-              <WithStyles(Dialog)
-                aria-labelledby="form-dialog-title"
-                onClose={[Function]}
-                open={false}
-              >
-                <WithStyles(DialogTitle)
-                  id="form-dialog-title"
-                >
-                  Filter
-                </WithStyles(DialogTitle)>
-                <WithStyles(DialogContent)>
-                  <WithStyles(DialogContentText)>
-                    Filter based on date
-                  </WithStyles(DialogContentText)>
-                  <TextField
-                    autoFocus={true}
-                    fullWidth={true}
-                    id="date"
-                    margin="dense"
-                    onChange={[Function]}
-                    required={false}
-                    select={false}
-                    type="date"
-                    variant="standard"
-                  />
-                  <WithStyles(DialogContentText)>
-                    Filter based on Currency
-                  </WithStyles(DialogContentText)>
-                  <TextField
-                    autoFocus={true}
-                    fullWidth={true}
-                    id="currencyText"
-                    margin="dense"
-                    onChange={[Function]}
-                    placeholder="Type Currency eg. ETC"
-                    required={false}
-                    select={false}
-                    type="text"
-                    variant="standard"
-                  />
-                </WithStyles(DialogContent)>
-                <WithStyles(DialogActions)>
-                  <WithStyles(Button)
-                    color="primary"
-                    onClick={[Function]}
-                  >
-                    Cancel
-                  </WithStyles(Button)>
-                  <WithStyles(Button)
-                    color="primary"
-                    onClick={[Function]}
-                  >
-                    Ok
-                  </WithStyles(Button)>
-                </WithStyles(DialogActions)>
-              </WithStyles(Dialog)>
+              <React.Fragment />
             </div>
           </header>
-          <footer>
-            <WithStyles(Typography)
-              align="center"
-              color="inherit"
-              variant="h6"
-            >
-              Crypto-Analyzer 2018 ©
-            </WithStyles(Typography)>
-          </footer>
+          <FooterComponent />
         </div>,
       ],
     },
@@ -191,65 +88,24 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <WithStyles(AppBar)
-              position="static"
-              style={
-                Object {
-                  "alignItems": "center",
-                  "display": "top",
-                }
-              }
-            >
-              <WithStyles(Toolbar)>
-                <pure(MoneyIcon) />
-                <WithStyles(Typography)
-                  color="inherit"
-                  noWrap={true}
-                  variant="h6"
-                >
-                  Crypto-Analyzer
-                </WithStyles(Typography)>
-              </WithStyles(Toolbar)>
-            </WithStyles(AppBar)>,
+            <AppBarComponent />,
             <header
               className="App-header"
             >
               <div
                 className="CardContainer"
               >
-                <CurrencyQuoteCard
-                  quotes={
-                    Object {
-                      "currency": "BTC",
-                      "date": "20180507",
-                      "quotes": Array [
-                        Object {
-                          "price": "35.98",
-                          "time": "0915",
-                        },
-                        Object {
-                          "price": "36.13",
-                          "time": "1045",
-                        },
-                        Object {
-                          "price": "37.01",
-                          "time": "1230",
-                        },
-                        Object {
-                          "price": "35.98",
-                          "time": "1400",
-                        },
-                        Object {
-                          "price": "39.56",
-                          "time": "1530",
-                        },
-                      ],
-                    }
-                  }
-                />
+                <WithStyles(Typography)
+                  color="inherit"
+                  noWrap={true}
+                  variant="h6"
+                >
+                  No Quote Found, try another Date or Currency
+                </WithStyles(Typography)>
               </div>
               <div>
                 <WithStyles(Button)
+                  className="refreshButton"
                   color="primary"
                   onClick={[Function]}
                   style={
@@ -262,6 +118,7 @@ ShallowWrapper {
                   Refresh Quotes
                 </WithStyles(Button)>
                 <WithStyles(Button)
+                  className="filterButton"
                   color="primary"
                   onClick={[Function]}
                   style={
@@ -273,73 +130,10 @@ ShallowWrapper {
                 >
                   Filter
                 </WithStyles(Button)>
-                <WithStyles(Dialog)
-                  aria-labelledby="form-dialog-title"
-                  onClose={[Function]}
-                  open={false}
-                >
-                  <WithStyles(DialogTitle)
-                    id="form-dialog-title"
-                  >
-                    Filter
-                  </WithStyles(DialogTitle)>
-                  <WithStyles(DialogContent)>
-                    <WithStyles(DialogContentText)>
-                      Filter based on date
-                    </WithStyles(DialogContentText)>
-                    <TextField
-                      autoFocus={true}
-                      fullWidth={true}
-                      id="date"
-                      margin="dense"
-                      onChange={[Function]}
-                      required={false}
-                      select={false}
-                      type="date"
-                      variant="standard"
-                    />
-                    <WithStyles(DialogContentText)>
-                      Filter based on Currency
-                    </WithStyles(DialogContentText)>
-                    <TextField
-                      autoFocus={true}
-                      fullWidth={true}
-                      id="currencyText"
-                      margin="dense"
-                      onChange={[Function]}
-                      placeholder="Type Currency eg. ETC"
-                      required={false}
-                      select={false}
-                      type="text"
-                      variant="standard"
-                    />
-                  </WithStyles(DialogContent)>
-                  <WithStyles(DialogActions)>
-                    <WithStyles(Button)
-                      color="primary"
-                      onClick={[Function]}
-                    >
-                      Cancel
-                    </WithStyles(Button)>
-                    <WithStyles(Button)
-                      color="primary"
-                      onClick={[Function]}
-                    >
-                      Ok
-                    </WithStyles(Button)>
-                  </WithStyles(DialogActions)>
-                </WithStyles(Dialog)>
+                <React.Fragment />
               </div>
             </header>,
-            <footer>
-              <WithStyles(Typography)
-                align="center"
-                color="inherit"
-                variant="h6"
-              >
-                Crypto-Analyzer 2018 ©
-              </WithStyles(Typography)>
-            </footer>,
+            <FooterComponent />,
           ],
           "className": "App",
         },
@@ -349,68 +143,9 @@ ShallowWrapper {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
-            "props": Object {
-              "children": <WithStyles(Toolbar)>
-                <pure(MoneyIcon) />
-                <WithStyles(Typography)
-                  color="inherit"
-                  noWrap={true}
-                  variant="h6"
-                >
-                  Crypto-Analyzer
-                </WithStyles(Typography)>
-              </WithStyles(Toolbar)>,
-              "position": "static",
-              "style": Object {
-                "alignItems": "center",
-                "display": "top",
-              },
-            },
+            "props": Object {},
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": Array [
-                  <pure(MoneyIcon) />,
-                  <WithStyles(Typography)
-                    color="inherit"
-                    noWrap={true}
-                    variant="h6"
-                  >
-                    Crypto-Analyzer
-                  </WithStyles(Typography)>,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": "Crypto-Analyzer",
-                    "color": "inherit",
-                    "noWrap": true,
-                    "variant": "h6",
-                  },
-                  "ref": null,
-                  "rendered": "Crypto-Analyzer",
-                  "type": [Function],
-                },
-              ],
-              "type": [Function],
-            },
+            "rendered": null,
             "type": [Function],
           },
           Object {
@@ -422,39 +157,17 @@ ShallowWrapper {
                 <div
                   className="CardContainer"
                 >
-                  <CurrencyQuoteCard
-                    quotes={
-                      Object {
-                        "currency": "BTC",
-                        "date": "20180507",
-                        "quotes": Array [
-                          Object {
-                            "price": "35.98",
-                            "time": "0915",
-                          },
-                          Object {
-                            "price": "36.13",
-                            "time": "1045",
-                          },
-                          Object {
-                            "price": "37.01",
-                            "time": "1230",
-                          },
-                          Object {
-                            "price": "35.98",
-                            "time": "1400",
-                          },
-                          Object {
-                            "price": "39.56",
-                            "time": "1530",
-                          },
-                        ],
-                      }
-                    }
-                  />
+                  <WithStyles(Typography)
+                    color="inherit"
+                    noWrap={true}
+                    variant="h6"
+                  >
+                    No Quote Found, try another Date or Currency
+                  </WithStyles(Typography)>
                 </div>,
                 <div>
                   <WithStyles(Button)
+                    className="refreshButton"
                     color="primary"
                     onClick={[Function]}
                     style={
@@ -467,6 +180,7 @@ ShallowWrapper {
                     Refresh Quotes
                   </WithStyles(Button)>
                   <WithStyles(Button)
+                    className="filterButton"
                     color="primary"
                     onClick={[Function]}
                     style={
@@ -478,62 +192,7 @@ ShallowWrapper {
                   >
                     Filter
                   </WithStyles(Button)>
-                  <WithStyles(Dialog)
-                    aria-labelledby="form-dialog-title"
-                    onClose={[Function]}
-                    open={false}
-                  >
-                    <WithStyles(DialogTitle)
-                      id="form-dialog-title"
-                    >
-                      Filter
-                    </WithStyles(DialogTitle)>
-                    <WithStyles(DialogContent)>
-                      <WithStyles(DialogContentText)>
-                        Filter based on date
-                      </WithStyles(DialogContentText)>
-                      <TextField
-                        autoFocus={true}
-                        fullWidth={true}
-                        id="date"
-                        margin="dense"
-                        onChange={[Function]}
-                        required={false}
-                        select={false}
-                        type="date"
-                        variant="standard"
-                      />
-                      <WithStyles(DialogContentText)>
-                        Filter based on Currency
-                      </WithStyles(DialogContentText)>
-                      <TextField
-                        autoFocus={true}
-                        fullWidth={true}
-                        id="currencyText"
-                        margin="dense"
-                        onChange={[Function]}
-                        placeholder="Type Currency eg. ETC"
-                        required={false}
-                        select={false}
-                        type="text"
-                        variant="standard"
-                      />
-                    </WithStyles(DialogContent)>
-                    <WithStyles(DialogActions)>
-                      <WithStyles(Button)
-                        color="primary"
-                        onClick={[Function]}
-                      >
-                        Cancel
-                      </WithStyles(Button)>
-                      <WithStyles(Button)
-                        color="primary"
-                        onClick={[Function]}
-                      >
-                        Ok
-                      </WithStyles(Button)>
-                    </WithStyles(DialogActions)>
-                  </WithStyles(Dialog)>
+                  <React.Fragment />
                 </div>,
               ],
               "className": "App-header",
@@ -545,83 +204,30 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": Array [
-                    Array [
-                      <CurrencyQuoteCard
-                        quotes={
-                          Object {
-                            "currency": "BTC",
-                            "date": "20180507",
-                            "quotes": Array [
-                              Object {
-                                "price": "35.98",
-                                "time": "0915",
-                              },
-                              Object {
-                                "price": "36.13",
-                                "time": "1045",
-                              },
-                              Object {
-                                "price": "37.01",
-                                "time": "1230",
-                              },
-                              Object {
-                                "price": "35.98",
-                                "time": "1400",
-                              },
-                              Object {
-                                "price": "39.56",
-                                "time": "1530",
-                              },
-                            ],
-                          }
-                        }
-                      />,
-                    ],
-                    undefined,
-                  ],
+                  "children": <WithStyles(Typography)
+                    color="inherit"
+                    noWrap={true}
+                    variant="h6"
+                  >
+                    No Quote Found, try another Date or Currency
+                  </WithStyles(Typography)>,
                   "className": "CardContainer",
                 },
                 "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "quotes": Object {
-                        "currency": "BTC",
-                        "date": "20180507",
-                        "quotes": Array [
-                          Object {
-                            "price": "35.98",
-                            "time": "0915",
-                          },
-                          Object {
-                            "price": "36.13",
-                            "time": "1045",
-                          },
-                          Object {
-                            "price": "37.01",
-                            "time": "1230",
-                          },
-                          Object {
-                            "price": "35.98",
-                            "time": "1400",
-                          },
-                          Object {
-                            "price": "39.56",
-                            "time": "1530",
-                          },
-                        ],
-                      },
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "No Quote Found, try another Date or Currency",
+                    "color": "inherit",
+                    "noWrap": true,
+                    "variant": "h6",
                   },
-                  undefined,
-                ],
+                  "ref": null,
+                  "rendered": "No Quote Found, try another Date or Currency",
+                  "type": [Function],
+                },
                 "type": "div",
               },
               Object {
@@ -631,6 +237,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <WithStyles(Button)
+                      className="refreshButton"
                       color="primary"
                       onClick={[Function]}
                       style={
@@ -643,6 +250,7 @@ ShallowWrapper {
                       Refresh Quotes
                     </WithStyles(Button)>,
                     <WithStyles(Button)
+                      className="filterButton"
                       color="primary"
                       onClick={[Function]}
                       style={
@@ -654,62 +262,7 @@ ShallowWrapper {
                     >
                       Filter
                     </WithStyles(Button)>,
-                    <WithStyles(Dialog)
-                      aria-labelledby="form-dialog-title"
-                      onClose={[Function]}
-                      open={false}
-                    >
-                      <WithStyles(DialogTitle)
-                        id="form-dialog-title"
-                      >
-                        Filter
-                      </WithStyles(DialogTitle)>
-                      <WithStyles(DialogContent)>
-                        <WithStyles(DialogContentText)>
-                          Filter based on date
-                        </WithStyles(DialogContentText)>
-                        <TextField
-                          autoFocus={true}
-                          fullWidth={true}
-                          id="date"
-                          margin="dense"
-                          onChange={[Function]}
-                          required={false}
-                          select={false}
-                          type="date"
-                          variant="standard"
-                        />
-                        <WithStyles(DialogContentText)>
-                          Filter based on Currency
-                        </WithStyles(DialogContentText)>
-                        <TextField
-                          autoFocus={true}
-                          fullWidth={true}
-                          id="currencyText"
-                          margin="dense"
-                          onChange={[Function]}
-                          placeholder="Type Currency eg. ETC"
-                          required={false}
-                          select={false}
-                          type="text"
-                          variant="standard"
-                        />
-                      </WithStyles(DialogContent)>
-                      <WithStyles(DialogActions)>
-                        <WithStyles(Button)
-                          color="primary"
-                          onClick={[Function]}
-                        >
-                          Cancel
-                        </WithStyles(Button)>
-                        <WithStyles(Button)
-                          color="primary"
-                          onClick={[Function]}
-                        >
-                          Ok
-                        </WithStyles(Button)>
-                      </WithStyles(DialogActions)>
-                    </WithStyles(Dialog)>,
+                    <React.Fragment />,
                   ],
                 },
                 "ref": null,
@@ -720,6 +273,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Refresh Quotes",
+                      "className": "refreshButton",
                       "color": "primary",
                       "onClick": [Function],
                       "style": Object {
@@ -737,6 +291,7 @@ ShallowWrapper {
                     "nodeType": "class",
                     "props": Object {
                       "children": "Filter",
+                      "className": "filterButton",
                       "color": "primary",
                       "onClick": [Function],
                       "style": Object {
@@ -751,234 +306,11 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "aria-labelledby": "form-dialog-title",
-                      "children": Array [
-                        <WithStyles(DialogTitle)
-                          id="form-dialog-title"
-                        >
-                          Filter
-                        </WithStyles(DialogTitle)>,
-                        <WithStyles(DialogContent)>
-                          <WithStyles(DialogContentText)>
-                            Filter based on date
-                          </WithStyles(DialogContentText)>
-                          <TextField
-                            autoFocus={true}
-                            fullWidth={true}
-                            id="date"
-                            margin="dense"
-                            onChange={[Function]}
-                            required={false}
-                            select={false}
-                            type="date"
-                            variant="standard"
-                          />
-                          <WithStyles(DialogContentText)>
-                            Filter based on Currency
-                          </WithStyles(DialogContentText)>
-                          <TextField
-                            autoFocus={true}
-                            fullWidth={true}
-                            id="currencyText"
-                            margin="dense"
-                            onChange={[Function]}
-                            placeholder="Type Currency eg. ETC"
-                            required={false}
-                            select={false}
-                            type="text"
-                            variant="standard"
-                          />
-                        </WithStyles(DialogContent)>,
-                        <WithStyles(DialogActions)>
-                          <WithStyles(Button)
-                            color="primary"
-                            onClick={[Function]}
-                          >
-                            Cancel
-                          </WithStyles(Button)>
-                          <WithStyles(Button)
-                            color="primary"
-                            onClick={[Function]}
-                          >
-                            Ok
-                          </WithStyles(Button)>
-                        </WithStyles(DialogActions)>,
-                      ],
-                      "onClose": [Function],
-                      "open": false,
-                    },
+                    "nodeType": "function",
+                    "props": Object {},
                     "ref": null,
-                    "rendered": Array [
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "class",
-                        "props": Object {
-                          "children": "Filter",
-                          "id": "form-dialog-title",
-                        },
-                        "ref": null,
-                        "rendered": "Filter",
-                        "type": [Function],
-                      },
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "class",
-                        "props": Object {
-                          "children": Array [
-                            <WithStyles(DialogContentText)>
-                              Filter based on date
-                            </WithStyles(DialogContentText)>,
-                            <TextField
-                              autoFocus={true}
-                              fullWidth={true}
-                              id="date"
-                              margin="dense"
-                              onChange={[Function]}
-                              required={false}
-                              select={false}
-                              type="date"
-                              variant="standard"
-                            />,
-                            <WithStyles(DialogContentText)>
-                              Filter based on Currency
-                            </WithStyles(DialogContentText)>,
-                            <TextField
-                              autoFocus={true}
-                              fullWidth={true}
-                              id="currencyText"
-                              margin="dense"
-                              onChange={[Function]}
-                              placeholder="Type Currency eg. ETC"
-                              required={false}
-                              select={false}
-                              type="text"
-                              variant="standard"
-                            />,
-                          ],
-                        },
-                        "ref": null,
-                        "rendered": Array [
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "children": "Filter based on date",
-                            },
-                            "ref": null,
-                            "rendered": "Filter based on date",
-                            "type": [Function],
-                          },
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "autoFocus": true,
-                              "fullWidth": true,
-                              "id": "date",
-                              "margin": "dense",
-                              "onChange": [Function],
-                              "required": false,
-                              "select": false,
-                              "type": "date",
-                              "variant": "standard",
-                            },
-                            "ref": null,
-                            "rendered": null,
-                            "type": [Function],
-                          },
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "children": "Filter based on Currency",
-                            },
-                            "ref": null,
-                            "rendered": "Filter based on Currency",
-                            "type": [Function],
-                          },
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "autoFocus": true,
-                              "fullWidth": true,
-                              "id": "currencyText",
-                              "margin": "dense",
-                              "onChange": [Function],
-                              "placeholder": "Type Currency eg. ETC",
-                              "required": false,
-                              "select": false,
-                              "type": "text",
-                              "variant": "standard",
-                            },
-                            "ref": null,
-                            "rendered": null,
-                            "type": [Function],
-                          },
-                        ],
-                        "type": [Function],
-                      },
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "class",
-                        "props": Object {
-                          "children": Array [
-                            <WithStyles(Button)
-                              color="primary"
-                              onClick={[Function]}
-                            >
-                              Cancel
-                            </WithStyles(Button)>,
-                            <WithStyles(Button)
-                              color="primary"
-                              onClick={[Function]}
-                            >
-                              Ok
-                            </WithStyles(Button)>,
-                          ],
-                        },
-                        "ref": null,
-                        "rendered": Array [
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "children": "Cancel",
-                              "color": "primary",
-                              "onClick": [Function],
-                            },
-                            "ref": null,
-                            "rendered": "Cancel",
-                            "type": [Function],
-                          },
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "class",
-                            "props": Object {
-                              "children": "Ok",
-                              "color": "primary",
-                              "onClick": [Function],
-                            },
-                            "ref": null,
-                            "rendered": "Ok",
-                            "type": [Function],
-                          },
-                        ],
-                        "type": [Function],
-                      },
-                    ],
-                    "type": [Function],
+                    "rendered": null,
+                    "type": Symbol(react.fragment),
                   },
                 ],
                 "type": "div",
@@ -989,32 +321,11 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <WithStyles(Typography)
-                align="center"
-                color="inherit"
-                variant="h6"
-              >
-                Crypto-Analyzer 2018 ©
-              </WithStyles(Typography)>,
-            },
+            "nodeType": "class",
+            "props": Object {},
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "align": "center",
-                "children": "Crypto-Analyzer 2018 ©",
-                "color": "inherit",
-                "variant": "h6",
-              },
-              "ref": null,
-              "rendered": "Crypto-Analyzer 2018 ©",
-              "type": [Function],
-            },
-            "type": "footer",
+            "rendered": null,
+            "type": [Function],
           },
         ],
         "type": "div",
@@ -1033,65 +344,24 @@ ShallowWrapper {
           <div
             className="App"
           >
-            <WithStyles(AppBar)
-              position="static"
-              style={
-                Object {
-                  "alignItems": "center",
-                  "display": "top",
-                }
-              }
-            >
-              <WithStyles(Toolbar)>
-                <pure(MoneyIcon) />
-                <WithStyles(Typography)
-                  color="inherit"
-                  noWrap={true}
-                  variant="h6"
-                >
-                  Crypto-Analyzer
-                </WithStyles(Typography)>
-              </WithStyles(Toolbar)>
-            </WithStyles(AppBar)>
+            <AppBarComponent />
             <header
               className="App-header"
             >
               <div
                 className="CardContainer"
               >
-                <CurrencyQuoteCard
-                  quotes={
-                    Object {
-                      "currency": "BTC",
-                      "date": "20180507",
-                      "quotes": Array [
-                        Object {
-                          "price": "35.98",
-                          "time": "0915",
-                        },
-                        Object {
-                          "price": "36.13",
-                          "time": "1045",
-                        },
-                        Object {
-                          "price": "37.01",
-                          "time": "1230",
-                        },
-                        Object {
-                          "price": "35.98",
-                          "time": "1400",
-                        },
-                        Object {
-                          "price": "39.56",
-                          "time": "1530",
-                        },
-                      ],
-                    }
-                  }
-                />
+                <WithStyles(Typography)
+                  color="inherit"
+                  noWrap={true}
+                  variant="h6"
+                >
+                  No Quote Found, try another Date or Currency
+                </WithStyles(Typography)>
               </div>
               <div>
                 <WithStyles(Button)
+                  className="refreshButton"
                   color="primary"
                   onClick={[Function]}
                   style={
@@ -1104,6 +374,7 @@ ShallowWrapper {
                   Refresh Quotes
                 </WithStyles(Button)>
                 <WithStyles(Button)
+                  className="filterButton"
                   color="primary"
                   onClick={[Function]}
                   style={
@@ -1115,73 +386,10 @@ ShallowWrapper {
                 >
                   Filter
                 </WithStyles(Button)>
-                <WithStyles(Dialog)
-                  aria-labelledby="form-dialog-title"
-                  onClose={[Function]}
-                  open={false}
-                >
-                  <WithStyles(DialogTitle)
-                    id="form-dialog-title"
-                  >
-                    Filter
-                  </WithStyles(DialogTitle)>
-                  <WithStyles(DialogContent)>
-                    <WithStyles(DialogContentText)>
-                      Filter based on date
-                    </WithStyles(DialogContentText)>
-                    <TextField
-                      autoFocus={true}
-                      fullWidth={true}
-                      id="date"
-                      margin="dense"
-                      onChange={[Function]}
-                      required={false}
-                      select={false}
-                      type="date"
-                      variant="standard"
-                    />
-                    <WithStyles(DialogContentText)>
-                      Filter based on Currency
-                    </WithStyles(DialogContentText)>
-                    <TextField
-                      autoFocus={true}
-                      fullWidth={true}
-                      id="currencyText"
-                      margin="dense"
-                      onChange={[Function]}
-                      placeholder="Type Currency eg. ETC"
-                      required={false}
-                      select={false}
-                      type="text"
-                      variant="standard"
-                    />
-                  </WithStyles(DialogContent)>
-                  <WithStyles(DialogActions)>
-                    <WithStyles(Button)
-                      color="primary"
-                      onClick={[Function]}
-                    >
-                      Cancel
-                    </WithStyles(Button)>
-                    <WithStyles(Button)
-                      color="primary"
-                      onClick={[Function]}
-                    >
-                      Ok
-                    </WithStyles(Button)>
-                  </WithStyles(DialogActions)>
-                </WithStyles(Dialog)>
+                <React.Fragment />
               </div>
             </header>
-            <footer>
-              <WithStyles(Typography)
-                align="center"
-                color="inherit"
-                variant="h6"
-              >
-                Crypto-Analyzer 2018 ©
-              </WithStyles(Typography)>
-            </footer>
+            <FooterComponent />
           </div>,
         ],
       },
@@ -1202,65 +410,24 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <WithStyles(AppBar)
-                position="static"
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "display": "top",
-                  }
-                }
-              >
-                <WithStyles(Toolbar)>
-                  <pure(MoneyIcon) />
-                  <WithStyles(Typography)
-                    color="inherit"
-                    noWrap={true}
-                    variant="h6"
-                  >
-                    Crypto-Analyzer
-                  </WithStyles(Typography)>
-                </WithStyles(Toolbar)>
-              </WithStyles(AppBar)>,
+              <AppBarComponent />,
               <header
                 className="App-header"
               >
                 <div
                   className="CardContainer"
                 >
-                  <CurrencyQuoteCard
-                    quotes={
-                      Object {
-                        "currency": "BTC",
-                        "date": "20180507",
-                        "quotes": Array [
-                          Object {
-                            "price": "35.98",
-                            "time": "0915",
-                          },
-                          Object {
-                            "price": "36.13",
-                            "time": "1045",
-                          },
-                          Object {
-                            "price": "37.01",
-                            "time": "1230",
-                          },
-                          Object {
-                            "price": "35.98",
-                            "time": "1400",
-                          },
-                          Object {
-                            "price": "39.56",
-                            "time": "1530",
-                          },
-                        ],
-                      }
-                    }
-                  />
+                  <WithStyles(Typography)
+                    color="inherit"
+                    noWrap={true}
+                    variant="h6"
+                  >
+                    No Quote Found, try another Date or Currency
+                  </WithStyles(Typography)>
                 </div>
                 <div>
                   <WithStyles(Button)
+                    className="refreshButton"
                     color="primary"
                     onClick={[Function]}
                     style={
@@ -1273,6 +440,7 @@ ShallowWrapper {
                     Refresh Quotes
                   </WithStyles(Button)>
                   <WithStyles(Button)
+                    className="filterButton"
                     color="primary"
                     onClick={[Function]}
                     style={
@@ -1284,73 +452,10 @@ ShallowWrapper {
                   >
                     Filter
                   </WithStyles(Button)>
-                  <WithStyles(Dialog)
-                    aria-labelledby="form-dialog-title"
-                    onClose={[Function]}
-                    open={false}
-                  >
-                    <WithStyles(DialogTitle)
-                      id="form-dialog-title"
-                    >
-                      Filter
-                    </WithStyles(DialogTitle)>
-                    <WithStyles(DialogContent)>
-                      <WithStyles(DialogContentText)>
-                        Filter based on date
-                      </WithStyles(DialogContentText)>
-                      <TextField
-                        autoFocus={true}
-                        fullWidth={true}
-                        id="date"
-                        margin="dense"
-                        onChange={[Function]}
-                        required={false}
-                        select={false}
-                        type="date"
-                        variant="standard"
-                      />
-                      <WithStyles(DialogContentText)>
-                        Filter based on Currency
-                      </WithStyles(DialogContentText)>
-                      <TextField
-                        autoFocus={true}
-                        fullWidth={true}
-                        id="currencyText"
-                        margin="dense"
-                        onChange={[Function]}
-                        placeholder="Type Currency eg. ETC"
-                        required={false}
-                        select={false}
-                        type="text"
-                        variant="standard"
-                      />
-                    </WithStyles(DialogContent)>
-                    <WithStyles(DialogActions)>
-                      <WithStyles(Button)
-                        color="primary"
-                        onClick={[Function]}
-                      >
-                        Cancel
-                      </WithStyles(Button)>
-                      <WithStyles(Button)
-                        color="primary"
-                        onClick={[Function]}
-                      >
-                        Ok
-                      </WithStyles(Button)>
-                    </WithStyles(DialogActions)>
-                  </WithStyles(Dialog)>
+                  <React.Fragment />
                 </div>
               </header>,
-              <footer>
-                <WithStyles(Typography)
-                  align="center"
-                  color="inherit"
-                  variant="h6"
-                >
-                  Crypto-Analyzer 2018 ©
-                </WithStyles(Typography)>
-              </footer>,
+              <FooterComponent />,
             ],
             "className": "App",
           },
@@ -1360,68 +465,9 @@ ShallowWrapper {
               "instance": null,
               "key": undefined,
               "nodeType": "class",
-              "props": Object {
-                "children": <WithStyles(Toolbar)>
-                  <pure(MoneyIcon) />
-                  <WithStyles(Typography)
-                    color="inherit"
-                    noWrap={true}
-                    variant="h6"
-                  >
-                    Crypto-Analyzer
-                  </WithStyles(Typography)>
-                </WithStyles(Toolbar)>,
-                "position": "static",
-                "style": Object {
-                  "alignItems": "center",
-                  "display": "top",
-                },
-              },
+              "props": Object {},
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": Array [
-                    <pure(MoneyIcon) />,
-                    <WithStyles(Typography)
-                      color="inherit"
-                      noWrap={true}
-                      variant="h6"
-                    >
-                      Crypto-Analyzer
-                    </WithStyles(Typography)>,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "children": "Crypto-Analyzer",
-                      "color": "inherit",
-                      "noWrap": true,
-                      "variant": "h6",
-                    },
-                    "ref": null,
-                    "rendered": "Crypto-Analyzer",
-                    "type": [Function],
-                  },
-                ],
-                "type": [Function],
-              },
+              "rendered": null,
               "type": [Function],
             },
             Object {
@@ -1433,39 +479,17 @@ ShallowWrapper {
                   <div
                     className="CardContainer"
                   >
-                    <CurrencyQuoteCard
-                      quotes={
-                        Object {
-                          "currency": "BTC",
-                          "date": "20180507",
-                          "quotes": Array [
-                            Object {
-                              "price": "35.98",
-                              "time": "0915",
-                            },
-                            Object {
-                              "price": "36.13",
-                              "time": "1045",
-                            },
-                            Object {
-                              "price": "37.01",
-                              "time": "1230",
-                            },
-                            Object {
-                              "price": "35.98",
-                              "time": "1400",
-                            },
-                            Object {
-                              "price": "39.56",
-                              "time": "1530",
-                            },
-                          ],
-                        }
-                      }
-                    />
+                    <WithStyles(Typography)
+                      color="inherit"
+                      noWrap={true}
+                      variant="h6"
+                    >
+                      No Quote Found, try another Date or Currency
+                    </WithStyles(Typography)>
                   </div>,
                   <div>
                     <WithStyles(Button)
+                      className="refreshButton"
                       color="primary"
                       onClick={[Function]}
                       style={
@@ -1478,6 +502,7 @@ ShallowWrapper {
                       Refresh Quotes
                     </WithStyles(Button)>
                     <WithStyles(Button)
+                      className="filterButton"
                       color="primary"
                       onClick={[Function]}
                       style={
@@ -1489,62 +514,7 @@ ShallowWrapper {
                     >
                       Filter
                     </WithStyles(Button)>
-                    <WithStyles(Dialog)
-                      aria-labelledby="form-dialog-title"
-                      onClose={[Function]}
-                      open={false}
-                    >
-                      <WithStyles(DialogTitle)
-                        id="form-dialog-title"
-                      >
-                        Filter
-                      </WithStyles(DialogTitle)>
-                      <WithStyles(DialogContent)>
-                        <WithStyles(DialogContentText)>
-                          Filter based on date
-                        </WithStyles(DialogContentText)>
-                        <TextField
-                          autoFocus={true}
-                          fullWidth={true}
-                          id="date"
-                          margin="dense"
-                          onChange={[Function]}
-                          required={false}
-                          select={false}
-                          type="date"
-                          variant="standard"
-                        />
-                        <WithStyles(DialogContentText)>
-                          Filter based on Currency
-                        </WithStyles(DialogContentText)>
-                        <TextField
-                          autoFocus={true}
-                          fullWidth={true}
-                          id="currencyText"
-                          margin="dense"
-                          onChange={[Function]}
-                          placeholder="Type Currency eg. ETC"
-                          required={false}
-                          select={false}
-                          type="text"
-                          variant="standard"
-                        />
-                      </WithStyles(DialogContent)>
-                      <WithStyles(DialogActions)>
-                        <WithStyles(Button)
-                          color="primary"
-                          onClick={[Function]}
-                        >
-                          Cancel
-                        </WithStyles(Button)>
-                        <WithStyles(Button)
-                          color="primary"
-                          onClick={[Function]}
-                        >
-                          Ok
-                        </WithStyles(Button)>
-                      </WithStyles(DialogActions)>
-                    </WithStyles(Dialog)>
+                    <React.Fragment />
                   </div>,
                 ],
                 "className": "App-header",
@@ -1556,83 +526,30 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": Array [
-                      Array [
-                        <CurrencyQuoteCard
-                          quotes={
-                            Object {
-                              "currency": "BTC",
-                              "date": "20180507",
-                              "quotes": Array [
-                                Object {
-                                  "price": "35.98",
-                                  "time": "0915",
-                                },
-                                Object {
-                                  "price": "36.13",
-                                  "time": "1045",
-                                },
-                                Object {
-                                  "price": "37.01",
-                                  "time": "1230",
-                                },
-                                Object {
-                                  "price": "35.98",
-                                  "time": "1400",
-                                },
-                                Object {
-                                  "price": "39.56",
-                                  "time": "1530",
-                                },
-                              ],
-                            }
-                          }
-                        />,
-                      ],
-                      undefined,
-                    ],
+                    "children": <WithStyles(Typography)
+                      color="inherit"
+                      noWrap={true}
+                      variant="h6"
+                    >
+                      No Quote Found, try another Date or Currency
+                    </WithStyles(Typography)>,
                     "className": "CardContainer",
                   },
                   "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {
-                        "quotes": Object {
-                          "currency": "BTC",
-                          "date": "20180507",
-                          "quotes": Array [
-                            Object {
-                              "price": "35.98",
-                              "time": "0915",
-                            },
-                            Object {
-                              "price": "36.13",
-                              "time": "1045",
-                            },
-                            Object {
-                              "price": "37.01",
-                              "time": "1230",
-                            },
-                            Object {
-                              "price": "35.98",
-                              "time": "1400",
-                            },
-                            Object {
-                              "price": "39.56",
-                              "time": "1530",
-                            },
-                          ],
-                        },
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": [Function],
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "No Quote Found, try another Date or Currency",
+                      "color": "inherit",
+                      "noWrap": true,
+                      "variant": "h6",
                     },
-                    undefined,
-                  ],
+                    "ref": null,
+                    "rendered": "No Quote Found, try another Date or Currency",
+                    "type": [Function],
+                  },
                   "type": "div",
                 },
                 Object {
@@ -1642,6 +559,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <WithStyles(Button)
+                        className="refreshButton"
                         color="primary"
                         onClick={[Function]}
                         style={
@@ -1654,6 +572,7 @@ ShallowWrapper {
                         Refresh Quotes
                       </WithStyles(Button)>,
                       <WithStyles(Button)
+                        className="filterButton"
                         color="primary"
                         onClick={[Function]}
                         style={
@@ -1665,62 +584,7 @@ ShallowWrapper {
                       >
                         Filter
                       </WithStyles(Button)>,
-                      <WithStyles(Dialog)
-                        aria-labelledby="form-dialog-title"
-                        onClose={[Function]}
-                        open={false}
-                      >
-                        <WithStyles(DialogTitle)
-                          id="form-dialog-title"
-                        >
-                          Filter
-                        </WithStyles(DialogTitle)>
-                        <WithStyles(DialogContent)>
-                          <WithStyles(DialogContentText)>
-                            Filter based on date
-                          </WithStyles(DialogContentText)>
-                          <TextField
-                            autoFocus={true}
-                            fullWidth={true}
-                            id="date"
-                            margin="dense"
-                            onChange={[Function]}
-                            required={false}
-                            select={false}
-                            type="date"
-                            variant="standard"
-                          />
-                          <WithStyles(DialogContentText)>
-                            Filter based on Currency
-                          </WithStyles(DialogContentText)>
-                          <TextField
-                            autoFocus={true}
-                            fullWidth={true}
-                            id="currencyText"
-                            margin="dense"
-                            onChange={[Function]}
-                            placeholder="Type Currency eg. ETC"
-                            required={false}
-                            select={false}
-                            type="text"
-                            variant="standard"
-                          />
-                        </WithStyles(DialogContent)>
-                        <WithStyles(DialogActions)>
-                          <WithStyles(Button)
-                            color="primary"
-                            onClick={[Function]}
-                          >
-                            Cancel
-                          </WithStyles(Button)>
-                          <WithStyles(Button)
-                            color="primary"
-                            onClick={[Function]}
-                          >
-                            Ok
-                          </WithStyles(Button)>
-                        </WithStyles(DialogActions)>
-                      </WithStyles(Dialog)>,
+                      <React.Fragment />,
                     ],
                   },
                   "ref": null,
@@ -1731,6 +595,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Refresh Quotes",
+                        "className": "refreshButton",
                         "color": "primary",
                         "onClick": [Function],
                         "style": Object {
@@ -1748,6 +613,7 @@ ShallowWrapper {
                       "nodeType": "class",
                       "props": Object {
                         "children": "Filter",
+                        "className": "filterButton",
                         "color": "primary",
                         "onClick": [Function],
                         "style": Object {
@@ -1762,234 +628,11 @@ ShallowWrapper {
                     Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {
-                        "aria-labelledby": "form-dialog-title",
-                        "children": Array [
-                          <WithStyles(DialogTitle)
-                            id="form-dialog-title"
-                          >
-                            Filter
-                          </WithStyles(DialogTitle)>,
-                          <WithStyles(DialogContent)>
-                            <WithStyles(DialogContentText)>
-                              Filter based on date
-                            </WithStyles(DialogContentText)>
-                            <TextField
-                              autoFocus={true}
-                              fullWidth={true}
-                              id="date"
-                              margin="dense"
-                              onChange={[Function]}
-                              required={false}
-                              select={false}
-                              type="date"
-                              variant="standard"
-                            />
-                            <WithStyles(DialogContentText)>
-                              Filter based on Currency
-                            </WithStyles(DialogContentText)>
-                            <TextField
-                              autoFocus={true}
-                              fullWidth={true}
-                              id="currencyText"
-                              margin="dense"
-                              onChange={[Function]}
-                              placeholder="Type Currency eg. ETC"
-                              required={false}
-                              select={false}
-                              type="text"
-                              variant="standard"
-                            />
-                          </WithStyles(DialogContent)>,
-                          <WithStyles(DialogActions)>
-                            <WithStyles(Button)
-                              color="primary"
-                              onClick={[Function]}
-                            >
-                              Cancel
-                            </WithStyles(Button)>
-                            <WithStyles(Button)
-                              color="primary"
-                              onClick={[Function]}
-                            >
-                              Ok
-                            </WithStyles(Button)>
-                          </WithStyles(DialogActions)>,
-                        ],
-                        "onClose": [Function],
-                        "open": false,
-                      },
+                      "nodeType": "function",
+                      "props": Object {},
                       "ref": null,
-                      "rendered": Array [
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "class",
-                          "props": Object {
-                            "children": "Filter",
-                            "id": "form-dialog-title",
-                          },
-                          "ref": null,
-                          "rendered": "Filter",
-                          "type": [Function],
-                        },
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "class",
-                          "props": Object {
-                            "children": Array [
-                              <WithStyles(DialogContentText)>
-                                Filter based on date
-                              </WithStyles(DialogContentText)>,
-                              <TextField
-                                autoFocus={true}
-                                fullWidth={true}
-                                id="date"
-                                margin="dense"
-                                onChange={[Function]}
-                                required={false}
-                                select={false}
-                                type="date"
-                                variant="standard"
-                              />,
-                              <WithStyles(DialogContentText)>
-                                Filter based on Currency
-                              </WithStyles(DialogContentText)>,
-                              <TextField
-                                autoFocus={true}
-                                fullWidth={true}
-                                id="currencyText"
-                                margin="dense"
-                                onChange={[Function]}
-                                placeholder="Type Currency eg. ETC"
-                                required={false}
-                                select={false}
-                                type="text"
-                                variant="standard"
-                              />,
-                            ],
-                          },
-                          "ref": null,
-                          "rendered": Array [
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "children": "Filter based on date",
-                              },
-                              "ref": null,
-                              "rendered": "Filter based on date",
-                              "type": [Function],
-                            },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "autoFocus": true,
-                                "fullWidth": true,
-                                "id": "date",
-                                "margin": "dense",
-                                "onChange": [Function],
-                                "required": false,
-                                "select": false,
-                                "type": "date",
-                                "variant": "standard",
-                              },
-                              "ref": null,
-                              "rendered": null,
-                              "type": [Function],
-                            },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "children": "Filter based on Currency",
-                              },
-                              "ref": null,
-                              "rendered": "Filter based on Currency",
-                              "type": [Function],
-                            },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "autoFocus": true,
-                                "fullWidth": true,
-                                "id": "currencyText",
-                                "margin": "dense",
-                                "onChange": [Function],
-                                "placeholder": "Type Currency eg. ETC",
-                                "required": false,
-                                "select": false,
-                                "type": "text",
-                                "variant": "standard",
-                              },
-                              "ref": null,
-                              "rendered": null,
-                              "type": [Function],
-                            },
-                          ],
-                          "type": [Function],
-                        },
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "class",
-                          "props": Object {
-                            "children": Array [
-                              <WithStyles(Button)
-                                color="primary"
-                                onClick={[Function]}
-                              >
-                                Cancel
-                              </WithStyles(Button)>,
-                              <WithStyles(Button)
-                                color="primary"
-                                onClick={[Function]}
-                              >
-                                Ok
-                              </WithStyles(Button)>,
-                            ],
-                          },
-                          "ref": null,
-                          "rendered": Array [
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "children": "Cancel",
-                                "color": "primary",
-                                "onClick": [Function],
-                              },
-                              "ref": null,
-                              "rendered": "Cancel",
-                              "type": [Function],
-                            },
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "class",
-                              "props": Object {
-                                "children": "Ok",
-                                "color": "primary",
-                                "onClick": [Function],
-                              },
-                              "ref": null,
-                              "rendered": "Ok",
-                              "type": [Function],
-                            },
-                          ],
-                          "type": [Function],
-                        },
-                      ],
-                      "type": [Function],
+                      "rendered": null,
+                      "type": Symbol(react.fragment),
                     },
                   ],
                   "type": "div",
@@ -2000,32 +643,11 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <WithStyles(Typography)
-                  align="center"
-                  color="inherit"
-                  variant="h6"
-                >
-                  Crypto-Analyzer 2018 ©
-                </WithStyles(Typography)>,
-              },
+              "nodeType": "class",
+              "props": Object {},
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "align": "center",
-                  "children": "Crypto-Analyzer 2018 ©",
-                  "color": "inherit",
-                  "variant": "h6",
-                },
-                "ref": null,
-                "rendered": "Crypto-Analyzer 2018 ©",
-                "type": [Function],
-              },
-              "type": "footer",
+              "rendered": null,
+              "type": [Function],
             },
           ],
           "type": "div",
