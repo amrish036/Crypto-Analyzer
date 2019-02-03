@@ -26,3 +26,4 @@ It also allows filtering based on date and/or currency type.
 
 - npm start
 - Hosted on localhost:3000
+ 
