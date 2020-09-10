@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
+
+router.use(function timelog(req,res,next){
+  console.log('Time: ',Date.now())
+  next()
+});
+
 // Get all quotes 
 
 router.get('/', (req, res) => {

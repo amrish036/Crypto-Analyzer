@@ -1,25 +1,28 @@
 {
-  "name": "CryptoAnalyser",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd server && node server.js\" \"cd client && npm start\" "
+  "status" : {
+    "code" : "API-200",
+    "message" : "Success"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amrish036/Crypto-Analyser.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amrish036/Crypto-Analyser/issues"
-  },
-  "homepage": "https://github.com/amrish036/Crypto-Analyser#readme",
-  "dependencies": {
-    "concurrently": "^4.0.1"
-  },
-  "devDependencies": {}
+  "settlementDetailsResponse" : {
+    "settlementMode" : "UK",
+    "offers" : [ {
+      "loanAmount" : "354000.00",
+      "contribution" : {
+        "amount" : "502000.00"
+      },
+      "isConstructionStaged" : false,
+      "accountId" : "2c8670e6-35d1-4a4c-9d95-83a49edcbedc",
+      "offerId" : "NHL001",
+      "simulationId" : "2c8670e6-35d1-4a4c-9d95-83a49edcbedc"
+    }, {
+      "loanAmount" : "150000.00",
+      "contribution" : {
+        "amount" : "502000.00"
+      },
+      "isConstructionStaged" : false,
+      "accountId" : "9b74a8c4-d65e-41cb-a50d-2be10adddf96",
+      "offerId" : "NHL001",
+      "simulationId" : "9b74a8c4-d65e-41cb-a50d-2be10adddf96"
+    } ]
+  }
 }
